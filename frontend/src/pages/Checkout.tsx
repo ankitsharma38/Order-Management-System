@@ -31,6 +31,12 @@ const Checkout = () => {
     try {
       const res = await placeOrder(orderData);
       setSuccess(res.data);
+      
+      // Save order to local history
+      const existingOrders = JSON.parse(localStorage.getItem('myOrders') || '[]');
+      const newOrders = [{ id: res.data._id, date: new Date().toISOString() }, ...existingOrders];
+      localStorage.setItem('myOrders', JSON.stringify(newOrders));
+
       clearCart();
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to place order. A product might be out of stock.');
@@ -60,9 +66,14 @@ const Checkout = () => {
         </div>
         
         <br/>
-        <Link to="/" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-colors">
-          Continue Shopping
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
+          <Link to={`/order/${success._id}`} className="inline-block bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-xl transition-colors">
+            View Order Status
+          </Link>
+          <Link to="/" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-md transition-colors">
+            Continue Shopping
+          </Link>
+        </div>
       </div>
     );
   }

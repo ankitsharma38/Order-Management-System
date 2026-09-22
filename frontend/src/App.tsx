@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Admin from './pages/Admin';
+import OrderDetails from './pages/OrderDetails';
+import TrackOrder from './pages/TrackOrder';
 
 function App() {
   const { cart } = useCart();
@@ -18,8 +20,8 @@ function App() {
               E-Commerce OMS
             </Link>
             <div className="flex items-center gap-6">
-              <Link to="/admin" className="font-medium hover:text-blue-200 transition text-sm bg-blue-700 px-3 py-1 rounded-lg">Admin Panel</Link>
               <Link to="/" className="font-medium hover:text-blue-200 transition">Products</Link>
+              <Link to="/track" className="font-medium hover:text-blue-200 transition">Track Order</Link>
               <Link to="/cart" className="relative p-2 font-medium hover:text-blue-200 transition flex items-center">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -40,6 +42,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/track" element={<TrackOrder />} />
+          <Route path="/order/:id" element={<OrderDetails />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
