@@ -55,7 +55,7 @@ const Checkout = () => {
           <p className="text-lg font-mono text-gray-900 break-all">{success._id}</p>
           <div className="mt-4 pt-4 border-t border-gray-200 flex justify-between items-end">
              <span className="text-gray-500 font-medium">Total Paid</span>
-             <span className="text-2xl font-extrabold text-green-600">₹{success.totalAmount}</span>
+             <span className="text-2xl font-extrabold text-green-600">₹{success.totalAmount.toLocaleString('en-IN')}</span>
           </div>
         </div>
         
@@ -92,7 +92,7 @@ const Checkout = () => {
         <p className="text-gray-500 mb-4">{cart.length} item{cart.length !== 1 ? 's' : ''} in cart</p>
         <div className="flex justify-between items-center border-t border-gray-200 pt-4 mt-2">
           <span className="text-lg font-medium text-gray-700">Total to Pay:</span>
-          <span className="text-3xl font-extrabold text-green-600">₹{cartTotal}</span>
+          <span className="text-3xl font-extrabold text-green-600">₹{cartTotal.toLocaleString('en-IN')}</span>
         </div>
       </div>
 
@@ -123,7 +123,7 @@ const Checkout = () => {
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
           ) : (
-            `Place Order (₹${cartTotal})`
+            `Place Order (₹${cartTotal.toLocaleString('en-IN')})`
           )}
         </button>
       </form>

@@ -29,7 +29,7 @@ const Cart = () => {
           <div key={item.productId} className="flex flex-col sm:flex-row items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 rounded-xl border border-gray-200 transition-colors">
             <div className="flex-1 w-full sm:w-auto text-center sm:text-left mb-4 sm:mb-0">
               <h3 className="text-lg font-bold text-gray-800">{item.name}</h3>
-              <p className="text-sm font-medium text-gray-500 mt-1">₹{item.price} each</p>
+              <p className="text-sm font-medium text-gray-500 mt-1">₹{item.price.toLocaleString('en-IN')} each</p>
             </div>
             
             <div className="flex items-center justify-between w-full sm:w-auto gap-6 sm:gap-8">
@@ -54,7 +54,7 @@ const Cart = () => {
               </div>
               
               <div className="w-24 text-right">
-                <span className="text-lg font-extrabold text-gray-900">₹{item.price * item.quantity}</span>
+                <span className="text-lg font-extrabold text-gray-900">₹{(item.price * item.quantity).toLocaleString('en-IN')}</span>
               </div>
               
               <button 
@@ -76,7 +76,7 @@ const Cart = () => {
       <div className="flex flex-col sm:flex-row justify-between items-center bg-gray-50 p-6 rounded-xl border border-gray-200">
         <div className="mb-4 sm:mb-0 text-center sm:text-left">
           <p className="text-gray-500 font-medium">Subtotal</p>
-          <p className="text-3xl font-extrabold text-gray-900">₹{cartTotal}</p>
+          <p className="text-3xl font-extrabold text-gray-900">₹{cartTotal.toLocaleString('en-IN')}</p>
         </div>
         <Link 
           to="/checkout" 

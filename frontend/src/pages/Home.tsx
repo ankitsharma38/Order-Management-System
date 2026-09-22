@@ -51,7 +51,7 @@ const Home = () => {
               <div className="p-6 flex-grow">
                 <h2 className="text-xl font-bold text-gray-800">{product.name}</h2>
                 <div className="mt-2 flex items-center justify-between">
-                  <span className="text-2xl font-extrabold text-blue-600">₹{product.price}</span>
+                  <span className="text-2xl font-extrabold text-blue-600">₹{product.price.toLocaleString('en-IN')}</span>
                   <span className={`text-sm font-medium px-2.5 py-0.5 rounded-full ${
                     product.stock > 0 
                       ? 'bg-green-100 text-green-800' 

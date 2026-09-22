@@ -3,6 +3,7 @@ import { useCart } from './context/CartContext';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import Admin from './pages/Admin';
 
 function App() {
   const { cart } = useCart();
@@ -17,6 +18,7 @@ function App() {
               E-Commerce OMS
             </Link>
             <div className="flex items-center gap-6">
+              <Link to="/admin" className="font-medium hover:text-blue-200 transition text-sm bg-blue-700 px-3 py-1 rounded-lg">Admin Panel</Link>
               <Link to="/" className="font-medium hover:text-blue-200 transition">Products</Link>
               <Link to="/cart" className="relative p-2 font-medium hover:text-blue-200 transition flex items-center">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +40,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
     </Router>
